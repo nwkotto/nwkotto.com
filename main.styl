@@ -1,0 +1,28 @@
+// Main settings
+
+main_bg_color = black
+main_text_color = white
+
+@keyframes foo
+    0%
+        opacity: 1
+    25%
+        opacity: 0.9
+    50%
+        opacity: 0.6
+    100%
+        opacity: 0
+
+animation()
+    -webkit-animation: arguments
+    -moz-animation: arguments
+    -ms-animation: arguments
+    -o-animation: arguments
+    animation: arguments
+
+body
+    background: main_bg_color
+    color: main_text_color
+
+.fader
+    animation(4s 1s infinite linear alternate)
