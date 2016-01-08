@@ -25,6 +25,7 @@
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "style-loader": "^0.13.0",
-    "stylus-loader": "^1.4.3"
+    "stylus-loader": "^1.4.3",
+    "url-loader": "^0.5.7"
   }
 }

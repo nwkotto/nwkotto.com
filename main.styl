@@ -2,16 +2,36 @@
 
 main_bg_color = black
 main_text_color = white
+primary_font = 'Quicksand', 'Futura', Helvetica, sans-serif
 
-@keyframes foo
+// Fonts
+
+@font-face
+    font-family Quicksand
+    src url("./fonts/quicksand/Quicksand-Light.otf") format("opentype")
+
+// Animations
+
+@keyframes text-pulse
     0%
-        opacity: 1
+        letter-spacing: 3px
     25%
-        opacity: 0.9
+        letter-spacing: 6px
     50%
-        opacity: 0.6
+        letter-spacing: 12px
     100%
-        opacity: 0
+        letter-spacing: 24px
+
+@keyframes slide-in
+    0%
+        opacity 0
+        margin-left 100px
+    50%
+        opacity 0.5
+        margin-left 40px
+    100%
+        opacity 1
+        margin-left 5px
 
 animation()
     -webkit-animation: arguments
@@ -23,6 +43,19 @@ animation()
 body
     background: main_bg_color
     color: main_text_color
+    font-family: primary_font
 
 .fader
-    animation(4s 1s infinite linear alternate)
+    animation(text-pulse 4s 1s infinite linear alternate)
+    
+.sliding-text
+    .block-letter
+        width 80px
+        height 50px
+        border-radius 5px
+        border 5px solid white
+        color white
+        text-align center
+        margin: 5px
+        animation(slide-in 2s 1s infinite linear alternate)
+        

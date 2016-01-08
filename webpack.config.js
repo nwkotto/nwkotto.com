@@ -15,7 +15,8 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015']
                 }
-            }
+            },
+            { test: /\.(png|woff|woff2|eot|ttf|otf|svg)$/, loader: 'url-loader?limit=100000' }
         ]
     }
 };
