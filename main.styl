@@ -26,9 +26,6 @@ primary_font = 'Quicksand', 'Futura', Helvetica, sans-serif
     0%
         opacity 0
         margin-left 100px
-    50%
-        opacity 0.5
-        margin-left 40px
     100%
         opacity 1
         margin-left 5px
@@ -40,22 +37,31 @@ animation()
     -o-animation: arguments
     animation: arguments
 
+animation-fill-mode()
+    -webkit-animation-fill-mode: arguments
+    -moz-animation-fill-mode: arguments
+    -ms-animation-fill-mode: arguments
+    -o-animation-fill-mode: arguments
+    animation-fill-mode: arguments
+
 body
     background: main_bg_color
     color: main_text_color
     font-family: primary_font
 
 .fader
-    animation(text-pulse 4s 1s infinite linear alternate)
+    animation text-pulse 4s 1s infinite linear alternate
     
 .sliding-text
     .block-letter
         width 80px
         height 50px
         border-radius 5px
-        border 5px solid white
+        border 2px solid white
         color white
         text-align center
-        margin: 5px
-        animation(slide-in 2s 1s infinite linear alternate)
+        margin 5px
+        opacity 0
+        animation slide-in 2s 1s 1 ease-out alternate
+        animation-fill-mode forwards
         
