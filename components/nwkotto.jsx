@@ -1,10 +1,12 @@
 import React from "react";
+import SlidingText from "./SlidingText.jsx"
 
 export default React.createClass({
   render: function() {
     return (
       <div className="fader">
-        This be nwkotto
+      	<SlidingText text="nwkotto"/>
+        {this.props.children}
       </div>
     );
   }

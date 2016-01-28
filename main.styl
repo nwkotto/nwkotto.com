@@ -29,6 +29,8 @@ primary_font = 'Quicksand', 'Futura', Helvetica, sans-serif
     100%
         opacity 1
         margin-left 5px
+        top auto
+        transform none
 
 animation()
     -webkit-animation: arguments
@@ -64,4 +66,7 @@ body
         opacity 0
         animation slide-in 2s 1s 1 ease-out alternate
         animation-fill-mode forwards
+        position relative
+        top 50%
+        transform translateY(-50%)
         

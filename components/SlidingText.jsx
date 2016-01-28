@@ -6,9 +6,8 @@ export default React.createClass({
   	let letters = Array.prototype.map.call(this.props.text, function(letter) {
   		// Update animation delay time
   		let styles = {
-  			"animation-delay": `${delayTime}s`
+  			"animationDelay": `${delayTime}s`
   		}
-  		console.log(styles);
   		delayTime += 0.5;
   		return (
   			<div className="block-letter" style={styles}>

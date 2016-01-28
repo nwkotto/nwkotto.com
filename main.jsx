@@ -1,11 +1,24 @@
 import "./main.styl"
 
-import SlidingText from "./components/SlidingText.jsx"
+// External components
 import React from "react"
 import ReactDOM from "react-dom"
+import { Router, Route, Link, browserHistory } from "react-router"
 
-document.write("<div id='app'></div>");
+// Internal components
+import Nwkotto from "./components/Nwkotto.jsx"
+
+let App = React.createClass({
+	render: function() {
+		return (
+			<Router history={browserHistory}>
+				<Route path="/" component={Nwkotto}/>
+			</Router>
+		)
+	}
+})
+
 ReactDOM.render(
-	<SlidingText text="nwkotto" />,
-	document.getElementById("app")
+	<App />,
+	document.body
 );
