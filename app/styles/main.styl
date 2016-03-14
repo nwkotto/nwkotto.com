@@ -1,8 +1,12 @@
 // Main settings
 
-main_bg_color = black
-main_text_color = white
+main_bg_color = white
+main_text_color = black
 primary_font = 'Quicksand', 'Futura', Helvetica, sans-serif
+
+main_red = #800000
+main_orange = #f87217
+main_green = #008000
 
 // Fonts
 
@@ -69,4 +73,49 @@ body
         position relative
         top 50%
         transform translateY(-50%)
-        
+
+// General Styles
+
+.container
+    width 100%
+    padding 0 50px
+    
+    a
+        color white
+        text-decoration none
+
+.outlined
+    border-width 4px
+    border-style solid
+    background-color white
+
+.outlined.red
+    border-color main_red
+    color main_red
+
+.outlined.orange
+    border-color main_orange
+    color main_orange
+
+.outlined.green
+    border-color main_green
+    color main_green
+
+.content-index
+    width 30%
+    margin auto
+    
+    .item
+        width 100%
+        display inline-block
+        padding 20px
+        margin 10px 0
+        box-sizing border-box
+        box-shadow 10px 5px 5px black
+        -webkit-transition box-shadow, margin-left, border-right, 0.5s
+        transition box-shadow, margin-left, border-right, 0.5s
+    
+    .item:hover
+        box-shadow none
+        margin-left 4px
+        border-right white
