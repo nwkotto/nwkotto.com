@@ -6,18 +6,19 @@ import { Router, Route, Link, browserHistory } from "react-router"
 // Internal components
 import Main from "./main.jsx"
 import ContentList from "./components/ContentList.jsx"
+import Nwkotto from "./components/Nwkotto.jsx"
 
-let App = React.createClass({
-	render: function() {
+class App extends React.Component {
+	render() {
 		return (
 			<Router history={browserHistory}>
 				<Route path="/" component={Main}>
-					<Route path=":slug" component={ContentList}/>
+					<Route path=":slug" component={Nwkotto}/>
 				</Route>
 			</Router>
 		)
 	}
-})
+}
 
 ReactDOM.render(
 	<App />,

@@ -7,6 +7,7 @@ primary_font = 'Quicksand', 'Futura', Helvetica, sans-serif
 main_red = #800000
 main_orange = #f87217
 main_green = #008000
+main_gray = #808080
 
 // Fonts
 
@@ -111,11 +112,15 @@ body
         padding 20px
         margin 10px 0
         box-sizing border-box
-        box-shadow 10px 5px 5px black
+        box-shadow 10px 5px 5px main_gray
         -webkit-transition box-shadow, margin-left, border-right, 0.5s
         transition box-shadow, margin-left, border-right, 0.5s
     
-    .item:hover
+    .item:hover, .item.active
         box-shadow none
-        margin-left 4px
-        border-right white
+    
+    .item:hover
+        margin-left 10px
+    
+    .item.active
+        margin-left 20px

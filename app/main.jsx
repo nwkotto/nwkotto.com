@@ -6,13 +6,14 @@ import React from "react"
 // Internal components
 import ContentList from "./components/ContentList.jsx"
 
-export default React.createClass({
-	getInitialState: function() {
-		return {
+export default class Main extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
 			'items': []
 		}
-	},
-	componentDidMount: function() {
+	}
+	componentDidMount() {
 		var items = [
 			{
 				'title': 'About Me',
@@ -36,13 +37,16 @@ export default React.createClass({
 		this.setState({
 			'items': items
 		});
-	},
-	render: function() {
+	}
+	render() {
 		return (
-			<div id="nwkotto container">
+			<div className="nwkotto container">
 				<h1>Welcome to Zombocom</h1>
-				<ContentList items={this.state.items} containerClass="content-index" />
+				<div className="content">
+					<ContentList items={this.state.items} containerClass="content-index" />
+					{this.children}
+				</div>
 			</div>
 		)
 	}
-})
+}

@@ -1,38 +1,42 @@
-import React from "react";
+import React from "react"
+import ReactDOM from "react-dom"
 import { Router, Route, Link, browserHistory } from "react-router"
 
-export default React.createClass({
-  render: function() {
-    let items = this.props.items.map(function(item) {
-      let className = `item outlined ${item.color}`;
-      let contents = (
-        <div>
-          <h2>{item.title}</h2>
-          <h3>{item.subtitle}</h3>
-        </div>
+import ContentDetail from "./ContentDetail.jsx"
+
+export default class ContentList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      'activeKey': ''
+    }
+    console.log(this.state);
+  }
+  toggleActiveElement(key) {
+    console.log(this);
+    this.state.activeKey = key == this.state.activeKey ? "" : key;
+  }
+  isActive(key) {
+    return key == this.state.activeKey;
+  }
+  listElementKey(idx) {
+    return `${this.props.containerClass}-item-${idx}`
+  }
+  render() {
+    let that = this;
+    let items = that.props.items.map(function(item, i) {
+      return (
+        <ContentDetail
+          key={that.listElementKey(i)}
+          item={item}
+          onClick={that.toggleActiveElement.bind(that, that.listElementKey(i))}
+          isActive={that.isActive(that.listElementKey(i))} />
       );
-      let wrapper = (
-        <div className={className}>
-          {contents}
-        </div>
-      );
-      if (item.slug) {
-        // Create link wrapper
-        wrapper = (
-          <Link to={`/${item.slug}`} className={className}>
-            {contents}
-          </Link>
-        );
-      }
-      return wrapper;
     });
     return (
-      <div>
-        <div className={this.props.containerClass}>
-          {items}
-        </div>
-        {this.children}
+      <div className={this.props.containerClass}>
+        {items}
       </div>
     );
   }
-});
+}
