@@ -10,10 +10,8 @@ export default class ContentList extends React.Component {
     this.state = {
       'activeKey': ''
     }
-    console.log(this.state);
   }
   toggleActiveElement(key) {
-    console.log(this);
     this.state.activeKey = key == this.state.activeKey ? "" : key;
   }
   isActive(key) {

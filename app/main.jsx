@@ -5,6 +5,10 @@ import React from "react"
 
 // Internal components
 import ContentList from "./components/ContentList.jsx"
+import TextScrambler from "./components/TextScrambler.jsx"
+import Header from "./components/Header.jsx"
+
+let ScrambledHeader = TextScrambler(Header);
 
 export default class Main extends React.Component {
 	constructor(props) {
@@ -41,7 +45,7 @@ export default class Main extends React.Component {
 	render() {
 		return (
 			<div className="nwkotto container">
-				<h1>Welcome to Zombocom</h1>
+				<ScrambledHeader title='nwkotto' targets={['title']} containerClass="content-header"/>
 				<div className="content">
 					<ContentList items={this.state.items} containerClass="content-index" />
 					{this.children}
