@@ -1,7 +1,7 @@
 // External components
 import React from "react"
 import ReactDOM from "react-dom"
-import { Router, Route, Link, browserHistory } from "react-router"
+import { Router, Route, Link, Redirect, browserHistory } from "react-router"
 
 // Internal components
 import Main from "./main.jsx"
@@ -12,9 +12,9 @@ class App extends React.Component {
 	render() {
 		return (
 			<Router history={browserHistory}>
-				<Route path="" component={Main}>
-					<Route path="/" component={Section}/>
-					<Route path="/:slug" component={Section}/>
+				<Redirect from='/' to='/home' />
+				<Route path="/" component={Main}>
+					<Route path=":slug" component={Section}/>
 				</Route>
 			</Router>
 		)
