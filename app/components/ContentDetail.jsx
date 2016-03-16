@@ -6,9 +6,12 @@ export default class ContentDetail extends React.Component {
   activeSelector() {
     return this.props.isActive ? "active" : "";
   }
+  linkTo() {
+    return this.props.isActive ? '/' : `/${this.props.item.slug}`;
+  }
   render() {
     let item = this.props.item;
-    let className = `item outlined ${item.color} ${this.activeSelector()}`;
+    let className = `item ${this.props.itemClass} ${item.color} ${this.activeSelector()}`;
     let contents = (
       <div>
         <h2>{item.title}</h2>
@@ -23,7 +26,7 @@ export default class ContentDetail extends React.Component {
     if (item.slug) {
       // Create link wrapper
       wrapper = (
-        <Link to={`/${item.slug}`} className={className} onClick={this.props.onClick}>
+        <Link to={this.linkTo()} className={className} onClick={this.props.onClick}>
           {contents}
         </Link>
       );

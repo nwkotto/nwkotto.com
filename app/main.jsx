@@ -45,10 +45,10 @@ export default class Main extends React.Component {
 	render() {
 		return (
 			<div className="nwkotto container">
-				<ScrambledHeader title='nwkotto' targets={['title']} containerClass="content-header"/>
+				<ScrambledHeader title='nwkotto codes' targets={['title']} containerClass="content-header"/>
 				<div className="content">
-					<ContentList items={this.state.items} containerClass="content-index" />
-					{this.children}
+					<ContentList items={this.state.items} itemClass="outlined" containerClass="section-index" />
+					{this.props.children}
 				</div>
 			</div>
 		)

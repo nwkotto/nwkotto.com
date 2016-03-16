@@ -1,6 +1,7 @@
 // Main settings
 
-content_width = 30%
+nav_width = 30%
+content_width = 60%
 
 main_bg_color = white
 main_text_color = black
@@ -82,6 +83,7 @@ body
 .container
     width 100%
     padding 0 50px
+    box-sizing border-box
     
     a
         color white
@@ -90,6 +92,7 @@ body
 .outlined
     border-width 4px
     border-style solid
+    border-color white
     background-color white
 
 .outlined.red
@@ -105,12 +108,25 @@ body
     color main_green
 
 .content-header
-    width content_width
-    margin auto
+    width nav_width
 
-.content-index
-    width content_width
-    margin auto
+.content
+    text-align center
+
+.section-index,
+.section
+    position relative
+    display inline-block
+    text-align left
+
+
+.section-index
+    width nav_width
+    z-index 12
+    padding 0 16px
+    border-style solid
+    border-width 0 4px 0 0
+    border-color white
     
     .item
         width 100%
@@ -119,8 +135,8 @@ body
         margin 10px 0
         box-sizing border-box
         box-shadow 10px 5px 5px main_gray
-        -webkit-transition box-shadow, margin-left, border-right, 0.5s
-        transition box-shadow, margin-left, border-right, 0.5s
+        -webkit-transition box-shadow, margin, border-right, 0.5s
+        transition box-shadow, margin, border-right, 0.5s
     
     .item:hover, .item.active
         box-shadow none
@@ -130,3 +146,18 @@ body
     
     .item.active
         margin-left 20px
+        border-right white
+
+    -webkit-transition border-color 0.5s
+    transition border-color 0.5s
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+
+.section
+    width content_width
+    z-index 0
+    vertical-align top
+    margin-left 16px
+    
+    .item
+        height 100%

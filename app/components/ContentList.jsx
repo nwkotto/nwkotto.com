@@ -8,17 +8,24 @@ export default class ContentList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      'activeKey': ''
+      'activeElement': {}
     }
   }
-  toggleActiveElement(key) {
-    this.state.activeKey = key == this.state.activeKey ? "" : key;
+  toggleActiveElement(element) {
+    this.state.activeElement = element == this.state.activeElement ? {} : element;
   }
-  isActive(key) {
-    return key == this.state.activeKey;
+  isActive(element) {
+    return element == this.state.activeElement;
   }
   listElementKey(idx) {
     return `${this.props.containerClass}-item-${idx}`
+  }
+  listClassName() {
+    let color = this.state.activeElement.color || "";
+    if (color) {
+      color += " outlined";
+    }
+    return `${this.props.containerClass} ${color}`;
   }
   render() {
     let that = this;
@@ -27,12 +34,13 @@ export default class ContentList extends React.Component {
         <ContentDetail
           key={that.listElementKey(i)}
           item={item}
-          onClick={that.toggleActiveElement.bind(that, that.listElementKey(i))}
-          isActive={that.isActive(that.listElementKey(i))} />
+          itemClass={that.props.itemClass || ""}
+          onClick={that.toggleActiveElement.bind(that, item)}
+          isActive={that.isActive(item)} />
       );
     });
     return (
-      <div className={this.props.containerClass}>
+      <div className={this.listClassName()}>
         {items}
       </div>
     );
