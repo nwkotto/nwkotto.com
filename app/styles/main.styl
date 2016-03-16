@@ -128,6 +128,12 @@ body
     border-width 0 4px 0 0
     border-color white
     
+    &.outlined
+        -webkit-transition border-color 0.5s
+        transition border-color 0.5s
+        -webkit-transition-delay 0.5s
+        transition-delay 0.5s
+    
     .item
         width 100%
         display inline-block
@@ -147,11 +153,6 @@ body
     .item.active
         margin-left 20px
         border-right white
-
-    -webkit-transition border-color 0.5s
-    transition border-color 0.5s
-    -webkit-transition-delay: 0.5s;
-    transition-delay: 0.5s;
 
 .section
     width content_width
