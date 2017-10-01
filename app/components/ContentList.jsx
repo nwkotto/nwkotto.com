@@ -28,15 +28,14 @@ export default class ContentList extends React.Component {
     return `${this.props.containerClass} ${color}`;
   }
   render() {
-    let that = this;
-    let items = that.props.items.map(function(item, i) {
+    let items = this.props.items.map((item, i) => {
       return (
         <ContentDetail
-          key={that.listElementKey(i)}
+          key={this.listElementKey(i)}
           item={item}
-          itemClass={that.props.itemClass || ""}
-          onClick={that.toggleActiveElement.bind(that, item)}
-          isActive={that.isActive(item)} />
+          itemClass={this.props.itemClass || ""}
+          onClick={this.toggleActiveElement.bind(this, item)}
+          isActive={this.isActive(item)} />
       );
     });
     return (
